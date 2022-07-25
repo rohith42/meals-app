@@ -18,19 +18,23 @@ export default function MealsOverviewScreen({ route, navigation }) {
 			navigation.setOptions({
 				title: categoryTitle,
 			});
-		}, [catId, navigation] );
-
-	
+		}, [catId, navigation] 
+	);
 
 	function renderMealItem(itemData) {
 		const item = itemData.item;
 
+		function pressHandler() {
+            navigation.navigate("Meal Details", { id: item.id });
+        }
+		
 		const mealItemProps = {
 			title: item.title,
 			imgUrl: item.imageUrl,
 			affordability: item.affordability,
 			complexity: item.complexity,
 			duration: item.duration,
+			onPress: pressHandler,
 		};
 		
 		return (

@@ -1,6 +1,8 @@
 import Category from '../models/category';
 import Meal from '../models/meal';
 
+// id, title, color
+
 export const CATEGORIES = [
   new Category('c1', 'Italian', '#f5428d'),
   new Category('c2', 'Quick & Easy', '#f54242'),
@@ -13,6 +15,21 @@ export const CATEGORIES = [
   new Category('c9', 'French', '#ffc7ff'),
   new Category('c10', 'Summer', '#47fced')
 ];
+
+
+// id,
+// categoryIds,
+// title,
+// affordability,
+// complexity,
+// imageUrl,
+// duration,
+// ingredients,
+// steps,
+// isGlutenFree,
+// isVegan,
+// isVegetarian,
+// isLactoseFree
 
 export const MEALS = [
   new Meal(
