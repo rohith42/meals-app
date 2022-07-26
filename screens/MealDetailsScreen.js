@@ -1,5 +1,6 @@
 import { useLayoutEffect } from "react";
 import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import IconButton from "../components/IconButton";
 import List from "../components/List";
 import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/Subtitle";
@@ -12,11 +13,20 @@ export default function MealDetailsScreen({ route, navigation }) {
 
     const meal = MEALS.find(ml => ml.id === id);
 
+    function favoriteMeal() {
+        console.log(meal.title + ' added to favorites!');
+    }
+    
     useLayoutEffect(
         () => {
-            navigation.setOptions({ title: meal.title });
+            navigation.setOptions({ 
+                title: meal.title,
+                headerRight: () => {
+                    return <IconButton icon='star' color='white' onPress={favoriteMeal} />
+                }, 
+            });
         },
-        [ navigation, meal ]
+        [ navigation, meal, favoriteMeal ]
     );
     
     return (

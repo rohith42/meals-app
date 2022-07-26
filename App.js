@@ -5,8 +5,18 @@ import MealsOverviewScreen from './screens/MealsOverviewScreen';
 import MealDetailsScreen from './screens/MealDetailsScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+function DrawerNavigator() {
+	return (
+		<Drawer.Navigator>
+			<Drawer.Screen />
+		</Drawer.Navigator>
+	);
+}
 
 export default function App() {
   	return (
@@ -22,7 +32,7 @@ export default function App() {
 				>
 					<Stack.Screen 
 						name="MealsCategories" 
-						component={CategoriesScreen} 
+						component={DrawerNavigator} 
 						options={{
 							title: 'Categories',
 						}}
